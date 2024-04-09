@@ -8,12 +8,9 @@ const unsigned int m_RPTM = 0x000003FF;
 /* Константы для работы с регистром r_RZ1 */
 unsigned int *const r_RZ1 = (unsigned int *)0x20500040;
 
-
-typedef enum {
-    ASI_0x02 = 0x02,
-    ASI_0x10 = 0x10,
-    ASI_0x11 = 0x11,
-} USED_ASI;
+#define ASI02 0x02
+#define ASI16 0x10
+#define ASI17 0x11
 
 /*
    ----------------------------------------------------------------------
@@ -94,18 +91,16 @@ typedef enum {
    ----------------------------------------------------------------------
 
 */
-typedef enum {
-    ASR16 = 16,
-    ASR17,
-    ASR18,
-} USED_ASR;
+#define ASR16 16
+#define ASR17 17
+#define ASR18 18
 
 
 
-void SetASI(int asi, int data);
-int GetASI(int asi);
+void MUS_BSP_SetASI(int asi, int data);
+int MUS_BSP_GetASI(int asi);
 
-void SetASR(int asrNum, int data);
+void MUS_BSP_SetASR(int asrNum, int data);
 /* 
    ----------------------------------------------------------------------
     Функция GetASR
@@ -116,7 +111,7 @@ void SetASR(int asrNum, int data);
     Обращение.
    ----------------------------------------------------------------------
 */
-int GetASR(int asrNum);
+int MUS_BSP_GetASR(int asrNum);
 
 /*
    ----------------------------------------------------------------------
@@ -136,7 +131,7 @@ int GetASR(int asrNum);
     Обращение.
    ----------------------------------------------------------------------
 */
-int GetRPTM();
+int MUS_BSP_GetRPTM();
 
 /*
    ----------------------------------------------------------------------
@@ -157,6 +152,6 @@ int GetRPTM();
     Обращение.
    ----------------------------------------------------------------------
 */
-void SetRPTM(int reg);
+void MUS_BSP_SetRPTM(int reg);
 
 #endif

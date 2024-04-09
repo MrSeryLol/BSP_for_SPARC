@@ -1,24 +1,23 @@
 #include "BSP.h"
 
-void SetASI(int asi, int data) {
-    USED_ASI usedASI = asi;
+void MUS_BSP_SetASI(int asi, int data) {
 
-    switch (usedASI) {
-        case ASI_0x02:
+    switch (asi) {
+        case ASI02:
             asm
             (
                 "sta %i1, [%g0] 0x02\n\t"
                 "nop\n\t"
             );
             break;
-        case ASI_0x10:
+        case ASI16:
             asm
             (
                 "sta %i1, [%g0] 0x10\n\t"
                 "nop\n\t"
             );
             break;
-        case ASI_0x11:
+        case ASI17:
             asm 
             (
                 "sta %i1, [%g0] 0x11\n\t"
@@ -30,12 +29,11 @@ void SetASI(int asi, int data) {
     }
 }
 
-int GetASI(int asi) {
-    USED_ASI usedASI = asi;
+int MUS_BSP_GetASI(int asi) {
     int infoReg;
 
-    switch (usedASI) {
-        case ASI_0x02:
+    switch (asi) {
+        case ASI02:
             asm
             (
                 "lda [%%g0] 0x02, %0\n\t"
@@ -43,7 +41,7 @@ int GetASI(int asi) {
                 : "=r" (infoReg)
             );
             break;
-        case ASI_0x10:
+        case ASI16:
             asm
             (
                 "lda [%%g0] 0x10, %0\n\t"
@@ -51,7 +49,7 @@ int GetASI(int asi) {
                 : "=r" (infoReg)
             );
             break;
-        case ASI_0x11:
+        case ASI17:
             asm 
             (
                 "lda [%%g0] 0x11, %0\n\t"
@@ -66,17 +64,15 @@ int GetASI(int asi) {
     return infoReg;
 }
 
-void SetASR(int asrNum, int data) {
-    USED_ASI usedASR = asrNum;
+void MUS_BSP_SetASR(int asrNum, int data) {
 
     // Не реализовано
 }
 
-int GetASR(int asrNum) {
-    USED_ASR usedASR = asrNum;
+int MUS_BSP_GetASR(int asrNum) {
     int data;
 
-    switch (usedASR) {
+    switch (asrNum) {
         case ASR16:
             asm
             (
@@ -108,10 +104,10 @@ int GetASR(int asrNum) {
     return data;
 }
 
-int GetRPTM() {
-    return *r_RPTM * m_RPTM;
+int MUS_BSP_GetRPTM() {
+    return *r_RPTM && m_RPTM;
 }
 
-void SetRPTM(int reg) {
-    *r_RPTM = reg * m_RPTM;
+void MUS_BSP_SetRPTM(int reg) {
+    *r_RPTM = reg && m_RPTM;
 }
