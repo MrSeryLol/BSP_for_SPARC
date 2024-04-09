@@ -1,5 +1,5 @@
-#ifndef BSP_H
-#define BSP_H
+#ifndef MUS_BSP_H
+#define MUS_BSP_H
 
 /* Константы для работы с регистром RPTM*/
 unsigned int *const r_RPTM = (unsigned int *)0x20500504; // r/w, РПТМ, Регистр программной телеметрии
