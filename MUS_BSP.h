@@ -99,6 +99,15 @@ unsigned int *const r_RZ1 = (unsigned int *)0x20500040;
 #define HamcodeInFPU 0x80000000
 #define HamcodeInIU 0x8000
 
+/* Константы адресов для регистров, связанных с SPR */
+#define REGISTER_Y_ADDRESS 0x90400000
+#define REGISTER_FSR_ADDRESS 0x90400018
+#define REGISTER_ASR16_ADDRESS 0x90400040
+#define REGISTER_ASR17_ADDRESS 0x90400044
+#define REGISTER_ASR18_ADDRESS 0x90400048
+#define INCORRECT_REGISTER_ADDRESS 0xDEADDEAD
+
+
 
 void MUS_BSP_SetASI(int asi, int data);
 int MUS_BSP_GetASI(int asi);
@@ -159,5 +168,14 @@ int MUS_BSP_GetRPTM();
    ----------------------------------------------------------------------
 */
 void MUS_BSP_SetRPTM(int reg);
+
+/*
+   --------------------------------------------------------------------
+    Системная функция ЧИТАТЬ РСН
+    Чтение текущего значения заданного регистра специального назначения 
+    процессора.
+   --------------------------------------------------------------------*)
+*/
+int MUS_BSP_GetSPR(int aReg);
 
 #endif

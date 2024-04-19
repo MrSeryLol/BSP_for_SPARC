@@ -150,3 +150,50 @@ int MUS_BSP_GetRPTM() {
 void MUS_BSP_SetRPTM(int reg) {
     *r_RPTM = reg && m_RPTM;
 }
+
+/*
+   --------------------------------------------------------------------
+    Системная функция ЧИТАТЬ РСН
+    Назначение.
+        Чтение текущего значения заданного регистра специального назначения 
+        процессора.
+    Вход.
+        Параметр: 
+        - адрес регистра специального назначения (РСН), который необходимо
+        прочитать.
+    Выход.
+        Результат:
+        - значение считанное с заданного РСН или 0xDEADDEAD, если адрес РСН
+        задан не верно.
+    Действия.
+        1. Если задан адрес для регистра: ASR16, ASR17 или ASR18,
+        считывает значение соответствующего регистра и возвращает его 
+        пользователю. 
+        2. Если задано иное значение адреса регистра, возвращает 
+        пользователю 0хDEADDEAD. 
+    Условия.
+        Работает с запретом прерываний в режиме "supervisor".
+        Обращается к: GetASR16, GetASR17, GetASR18.
+ --------------------------------------------------------------------*)
+*/
+int MUS_BSP_GetSPR(int aReg)
+{
+    int result;
+
+    switch (aReg) {
+        case REGISTER_ASR16_ADDRESS:
+            result = MUS_BSP_GetASR(ASR16);
+            break;
+        case REGISTER_ASR17_ADDRESS:
+            result = MUS_BSP_GetASR(ASR17);
+            break;
+        case REGISTER_ASR18_ADDRESS:
+            result = MUS_BSP_GetASR(ASR18);
+            break;
+        default:
+            result = INCORRECT_REGISTER_ADDRESS;
+            break;
+    }
+
+    return result;
+}
