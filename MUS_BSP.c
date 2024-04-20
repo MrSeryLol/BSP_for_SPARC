@@ -197,3 +197,37 @@ int MUS_BSP_GetSPR(int aReg)
 
     return result;
 }
+
+void MUS_BSP_Set_r_RGU(int data) {
+    *r_RGU = data;
+}
+
+
+int MUS_BSP_Get_r_RGU() {
+    return *r_RGU;
+}
+
+void MUS_BSP_Set_r_BUK(int data) {
+    *r_BUK = data;
+}
+
+int MUS_BSP_Get_r_BUK() {
+    return *r_BUK;
+}
+
+void MUS_BSP_Set_r_UKMVP1(int data) {
+    *r_UKMVP1 = data;
+}
+
+int MUS_BSP_Get_r_UKMVP1() {
+    return *r_UKMVP1;
+}
+
+void MUS_BSP_Set_r_UKMVP2(int data) {
+    *r_UKMVP2 = data;
+}
+
+int MUS_BSP_Get_r_UKMVP2()
+{
+    return *r_UKMVP2;
+}
