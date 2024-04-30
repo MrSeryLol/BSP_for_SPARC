@@ -116,6 +116,11 @@ unsigned int *const r_UKMVP2 = (unsigned int *)0x20500518; // r/w, РУК_МВП
 #define INCORRECT_REGISTER_ADDRESS 0xDEADDEAD
 
 
+unsigned int *const r_RZC1 = (unsigned int *)0x20500030; //r  , РЗС1, Чтение регистра запросов 1 со сбросом всех заявок
+unsigned int *const r_RZC2 = (unsigned int *)0x20500034; //r  , РЗС2, Чтение регистра запросов 2 со сбросом всех заявок
+unsigned int *const r_RZC3 = (unsigned int *)0x20500038; //r  , РЗС3, Чтение регистра запросов 3 со сбросом всех заявок 
+
+
 
 void MUS_BSP_SetASI(int asi, int data);
 int MUS_BSP_GetASI(int asi);
