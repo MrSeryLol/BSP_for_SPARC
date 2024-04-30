@@ -128,6 +128,12 @@ unsigned int *const r_StatusAHB = (unsigned int *)0x80000F00; //r/w, AHB Status 
 unsigned int *const r_Failar = (unsigned int *)0x80000F04; //r/ , AHB Failing address register
 
 
+unsigned int *const r_RAO = (unsigned int *)0x20500530; //r,   РАО, Регистр адреса одиночной ошибки
+unsigned int *const r_RSO = (unsigned int *)0x20500534; //r/w, РCO, Регистр счетчика одиночных ошибок
+unsigned int *const r_RAD = (unsigned int *)0x20500538; //r,   РАД, Регистр адреса двойной ошибки
+unsigned int *const r_RSD = (unsigned int *)0x2050053C; //r/w, РСД, Регистр счетчика двойных ошибок
+unsigned int *const r_RUE = (unsigned int *)0x20500540; //r/w, РУЕ, Регистр управления EDAC
+
 
 void MUS_BSP_SetASI(int asi, int data);
 int MUS_BSP_GetASI(int asi);
