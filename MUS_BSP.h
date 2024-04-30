@@ -120,6 +120,13 @@ unsigned int *const r_RZC1 = (unsigned int *)0x20500030; //r  , РЗС1, Чте�
 unsigned int *const r_RZC2 = (unsigned int *)0x20500034; //r  , РЗС2, Чтение регистра запросов 2 со сбросом всех заявок
 unsigned int *const r_RZC3 = (unsigned int *)0x20500038; //r  , РЗС3, Чтение регистра запросов 3 со сбросом всех заявок 
 
+/* ---------------------- Interupt Registers ---------------------------- */
+unsigned int *const r_ITC = (unsigned int *)0x8000020C;; //w, Interrupt Clear Register
+
+/* ----------------------- AHB Registers ------------------------------- */
+unsigned int *const r_StatusAHB = (unsigned int *)0x80000F00; //r/w, AHB Status register
+unsigned int *const r_Failar = (unsigned int *)0x80000F04; //r/ , AHB Failing address register
+
 
 
 void MUS_BSP_SetASI(int asi, int data);
