@@ -144,11 +144,11 @@ int MUS_BSP_GetASR(int asrNum) {
 }
 
 int MUS_BSP_GetRPTM() {
-    return *r_RPTM && m_RPTM;
+    return *r_RPTM & m_RPTM;
 }
 
 void MUS_BSP_SetRPTM(int reg) {
-    *r_RPTM = reg && m_RPTM;
+    *r_RPTM = reg & m_RPTM;
 }
 
 /*
@@ -324,13 +324,13 @@ void MUS_BSP_setRegIntMaska(TNomRegInt nReg, int maska) {
 int MUS_BSP_getReqInt(TNomRegInt nReg) {
     switch (nReg) {
         case irq:
-            return *r_ITP * m_ITM_0;
+            return *r_ITP & m_ITM_0;
         case int1:
-            return *r_RZ1 * m_RZ1;
+            return *r_RZ1 & m_RZ1;
         case int2:
-            return *r_RZ2 * m_RZ2;
+            return *r_RZ2 & m_RZ2;
         case int3:
-            return *r_RZ3 * m_RZ3;
+            return *r_RZ3 & m_RZ3;
     }
 }
 
