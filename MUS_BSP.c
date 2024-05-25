@@ -254,11 +254,11 @@ int MUS_BSP_Get_r_UKMVP2()
 int MUS_BSP_getRegIntMaska(TNomRegInt nReg) {
     switch (nReg) {
         case int1:
-            return r_RM1;
+            return *r_RM1;
         case int2:
-            return r_RM2;
+            return *r_RM2;
         case int3:
-            return r_RM3;
+            return *r_RM3;
     }
 }
 
